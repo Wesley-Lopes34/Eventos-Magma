@@ -26,6 +26,6 @@ Route::get('/about', function () {
 Route::get('/eventos/{id}', function ($id) {
     return view('eventos', ['id' => $id]);
 });
-Route::get('/eventos/create', [EventController::class, 'create']
+Route::get('/events/create', [EventController::class, 'create']
 
 );

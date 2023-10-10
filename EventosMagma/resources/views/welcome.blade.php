@@ -1,6 +1,6 @@
 @extends('layots.main')
 
-@section('title', 'EventosMagma')
+@section('title', 'Eventos Magma')
 
 @section('content')
 

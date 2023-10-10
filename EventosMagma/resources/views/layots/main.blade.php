@@ -29,8 +29,8 @@
                         <img src="/imgs/logo.png" alt="Eventos Magma" style="width: 75px; margin: 10px;">
                     </a>
                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a href="" class="nav-link">Inicio</a>
+                        <li class="nav-item"> 
+                            <a href="/" class="nav-link">Inicio</a>
                         </li>
                         <li class="nav-item">
                             <a href="" class="nav-link">Eventos</a>
@@ -39,7 +39,7 @@
                             <a href="" class="nav-link">Entrar</a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">Cadastrar</a>
+                            <a href="/events/create" class="nav-link">Cadastrar</a>
                         </li>
                         <li class="nav-item">
                             <a href="" class="nav-link">Sobre</a>
@@ -58,5 +58,7 @@
                 Eventos Magma &copy; 2023
             </p>
         </footer>
+            <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+            <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     </body>
 </html>
