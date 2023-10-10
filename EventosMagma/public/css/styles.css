@@ -1,0 +1,126 @@
+/* General */
+
+*{
+    font-family: 'Roboto';
+}
+
+body {
+    min-height: 100vh;
+    padding-bottom: 100px;
+    position: relative;
+}
+
+header {
+    border-bottom: 1px solid #ccc;
+    background-color: #fff;
+}
+
+.row {
+    margin: 0;
+
+}
+
+.container-fluid {
+    padding: 0;
+
+}
+
+.btn-primary {
+    background-color: #2a50f8;
+    border: 2px solid #110483;
+
+}
+
+.btn-primary:hover {
+    background-color: #110483;
+    border-color: #110483;
+}
+
+/* NAVBAR */
+
+#navbar {
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 5px 0;
+
+}
+
+#navbar a {
+    font-size: 20px;
+    color: #757575;
+
+}
+
+#navbar a:hover {
+    color: #110483;
+
+}
+
+/* Search Container */
+
+#search-container {
+    background-image: url("../imgs/pessoasassisntoalgo02.png");
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    padding: 50px;
+    text-align: center;
+
+}
+
+#search-container h1 {
+    color: black;
+    margin-bottom: 30px;
+    font-weight: 900;
+
+}
+
+#search-container form {
+    width: 50%;
+    margin: 0 auto;
+
+}
+
+/* Lista de Eventos */
+
+#events-container {
+    padding: 50px;
+    
+}
+
+#events-container h2 {
+    margin-bottom: 10px;
+
+}
+
+#events-container .subtitle {
+    color: #757575;
+    margin-bottom: 30px;
+
+}
+
+#cards-container {
+    display: flex;
+
+}
+
+#events-container .card {
+    /*flex: 1 1 0;-->*/
+    max-width: 20%;
+    border-radius: 10px;
+    padding: 0;
+    margin: 5px;
+
+}
+
+#events-container img {
+    width: 100%;
+    padding: 10px;
+    margin: auto;
+}
+
+#events-container img:hover {
+    transform: scale(1.1);
+    transition: all 0.5s;
+    background-size: cover;
+}

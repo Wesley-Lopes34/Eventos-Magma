@@ -8,9 +8,9 @@ use App\Models\Event;
 class EventController extends Controller
 {
     public function index(){
-
+//Trazendo os eventos para o Controller.
       $events = Event::all();
-
+//Enviando para a parte o index do meu projeto todos os eventos da tabela Events.
       return view('welcome', ['events' => $events]);
 
     }
