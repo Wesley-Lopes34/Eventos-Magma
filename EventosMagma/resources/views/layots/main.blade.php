@@ -21,6 +21,37 @@
 
     </head>
     <body>
+
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="collapse navbar-collapse" id="navbar">
+                    <a href="" class="navbar-brand">
+                        <img src="/imgs/logo.png" alt="Eventos Magma" style="width: 75px; margin: 10px;">
+                    </a>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="" class="nav-link">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link">Eventos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link">Entrar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link">Cadastrar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link">Sobre</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </nav>
+
+
+        </header>
+
         @yield('content')
         <footer>
             <p>
