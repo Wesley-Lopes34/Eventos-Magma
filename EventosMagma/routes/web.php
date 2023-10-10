@@ -13,9 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+use App\Http\Controllers\EventController;
+
+Route::get('/', [EventController::class, 'index']
+
+);
 
 Route::get('/about', function () {
     return view('about');
@@ -24,3 +26,6 @@ Route::get('/about', function () {
 Route::get('/eventos/{id}', function ($id) {
     return view('eventos', ['id' => $id]);
 });
+Route::get('/eventos/create', [EventController::class, 'create']
+
+);
