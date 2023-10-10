@@ -1,10 +1,10 @@
 <?php
-
+//As Migration serve para manipular melhor o meu banco de dados sem precisar ta indo lá e colocando dados de forma manual.
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProductTeste extends Migration
+class CreateEventsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreateProductTeste extends Migration
      */
     public function up()
     {
-        Schema::create('product_teste', function (Blueprint $table) {
+        Schema::create('events', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
             $table->timestamps();
+            $table->string('title');
+            $table->text('description');
+            $table->string('city');
+            $table->boolean('type');
         });
     }
 
@@ -27,6 +30,6 @@ class CreateProductTeste extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product_teste');
+        Schema::dropIfExists('events');
     }
 }

@@ -1,14 +1,17 @@
 <?php
-
+//O controler serve para manipular as paginas do meu projeto, aqui eu posso somente colocar parte que devem ser feita a logica de cada página.
 namespace App\Http\Controllers;
-
+//Essa parte é como se fosse a parte de imports, eu estou importando do Model a parte de eventos.
 use Illuminate\Http\Request;
+use App\Models\Event;
 
 class EventController extends Controller
 {
     public function index(){
 
-      return view('welcome');
+      $events = Event::all();
+
+      return view('welcome', ['events' => $events]);
 
     }
 
