@@ -5,6 +5,14 @@
 @section('content')
 <link rel="stylesheet" href="/css/styles.css">
 
+<?php
+    session_start();
+    if(isset($_SESSION['message'])){
+        echo $_SESSION['message'];
+
+        unset ($_SESSION['message']);
+    }
+?>
 
     <div id="search-container" class="col-md-12">
         <h1>Busque um evento</h1>

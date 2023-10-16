@@ -25,6 +25,15 @@ class EventController extends Controller
 
         $events = new Event;
 
+        if($request->title == "" || $request->city == "" || $request->description == "" || $request->type == ""){
+            session_start();
+
+            $_SESSION["message"] = " <script>  alert('Você esqueceu de preencher algum campo, tente novamente!')  </script>";
+
+            return redirect('/');
+
+        }
+
         $events->title = $request->title;
         $events->city = $request->city;
         $events->description = $request->description;
@@ -32,7 +41,22 @@ class EventController extends Controller
 
         $events->save();
 
-        return redirect('/');
+        if($events){
+            session_start();
+
+            $_SESSION["message"] = " <script>  alert('Evento Criado com sucesso: ')  </script>";
+
+            return redirect('/');
+        }
+        else{
+            session_start();
+
+            $_SESSION["message"] = "Evento Não foi cadastrado :(";
+
+            return redirect('/');
+        }
+
+        
 
     }
 

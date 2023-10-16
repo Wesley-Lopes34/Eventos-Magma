@@ -28,6 +28,7 @@ header {
 .btn-primary {
     background-color: #2a50f8;
     border: 2px solid #110483;
+    margin-top: 10px;
 
 }
 
@@ -144,6 +145,27 @@ header {
 
 }
 
+/*  Pagina de criação de eventos */
+
+#event-create-container {
+    padding: 30px;
+
+}
+
+#event-create-container label{
+    font-weight: bold;
+    
+}
+
+#event-create-container input,
+#event-create-container select,
+#event-create-container textarea {
+    font-size: 15px;
+
+}
+
+
+
 /* Footer */
 
 footer {
@@ -159,5 +181,5 @@ footer {
 
 footer p {
     margin-bottom: 0;
-    
+
 }
