@@ -21,5 +21,20 @@ class EventController extends Controller
 
     }
 
+    public function store(Request $request){
+
+        $events = new Event;
+
+        $events->title = $request->title;
+        $events->city = $request->city;
+        $events->description = $request->description;
+        $events->type = $request->type;
+
+        $events->save();
+
+        return redirect('/');
+
+    }
+
 
 }
