@@ -35,27 +35,32 @@ class EventController extends Controller
             return redirect('/');
 
         }
-
+//Nesa parte ta pegando os dados dos forms para colocar no banco de dados.
+        
         $events->title = $request->title;
         $events->city = $request->city;
         $events->description = $request->description;
         $events->type = $request->type;
+        $events->image = $request->image;
 
 //parte de envio de imagens, lógica.
 
-        if($request->hasFile('iamge') && $request->file('image')->isValid()){
-
+        if($request->hasFile('image') && $request->file('image')->isValid()){
+            
+            
             $requestImage = $request->image;
+           
 //Pegar a imagem.
             $extension = $requestImage->extension();
 //Pegar nome da imagem.
-            $imageName = md5($requestImage->image->getClientOriginalName() . strtotime('now')) . '.' . $extension;
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime('now')) . '.' . $extension;
 
-            $requestImage->image->move(public_path('imgs/events'), $imageName);
+            $requestImage->move(public_path('imgs/events'), $imageName);
 
             $events->image = $imageName;
 
         }
+        
 
         $events->save();
 
