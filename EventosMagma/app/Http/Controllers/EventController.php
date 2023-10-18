@@ -11,6 +11,7 @@ class EventController extends Controller
 //Trazendo os eventos para o Controller.
       $events = Event::all();
 //Enviando para a parte o index do meu projeto todos os eventos da tabela Events.
+
       return view('welcome', ['events' => $events]);
 
     }
@@ -24,6 +25,7 @@ class EventController extends Controller
     public function store(Request $request){
 
         $events = new Event;
+//Parte de checagem, para ver se não tem nada vazio dentro dos forms.
 
         if($request->title == "" || $request->city == "" || $request->description == "" || $request->type == ""){
             session_start();
@@ -39,8 +41,26 @@ class EventController extends Controller
         $events->description = $request->description;
         $events->type = $request->type;
 
+//parte de envio de imagens, lógica.
+
+        if($request->hasFile('iamge') && $request->file('image')->isValid()){
+
+            $requestImage = $request->image;
+//Pegar a imagem.
+            $extension = $requestImage->extension();
+//Pegar nome da imagem.
+            $imageName = md5($requestImage->image->getClientOriginalName() . strtotime('now')) . '.' . $extension;
+
+            $requestImage->image->move(public_path('imgs/events'), $imageName);
+
+            $events->image = $imageName;
+
+        }
+
         $events->save();
 
+
+//parte para checar e mandar mensagem caso o evento tenha sido criado com sucesso e logo após mensagem de alerta caso n tenha dado certo.
         if($events){
             session_start();
 
