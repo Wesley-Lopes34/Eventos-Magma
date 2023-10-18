@@ -26,7 +26,7 @@
         <header>
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="collapse navbar-collapse" id="navbar">
-                    <a href="" class="navbar-brand">
+                    <a href="/" class="navbar-brand">
                         <img src="/imgs/logo.png" alt="Eventos Magma" style="width: 75px; margin: 10px;">
                     </a>
                     <ul class="navbar-nav">

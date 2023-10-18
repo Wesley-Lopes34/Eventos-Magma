@@ -61,9 +61,7 @@ class EventController extends Controller
 
         }
         
-
         $events->save();
-
 
 //parte para checar e mandar mensagem caso o evento tenha sido criado com sucesso e logo após mensagem de alerta caso n tenha dado certo.
         if($events){
@@ -86,4 +84,13 @@ class EventController extends Controller
     }
 
 
+    public function show($id){
+
+        $event = Event::findorFail($id);
+
+        return view('events.show', ['event' => $event]);
+
+
+    }
 }
+  
