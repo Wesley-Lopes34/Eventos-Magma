@@ -41,6 +41,7 @@ class EventController extends Controller
         $events->description = $request->description;
         $events->type = $request->type;
         $events->image = $request->image;
+        $events->items = $request->items;
 
 //parte de envio de imagens, lógica.
 

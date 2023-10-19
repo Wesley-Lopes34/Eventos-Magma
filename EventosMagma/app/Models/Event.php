@@ -9,4 +9,10 @@ use Illuminate\Database\Eloquent\Model;
 class Event extends Model
 {
     use HasFactory;
+//Nessa parte eu tô dizendo pro Laravel que os dados da coluna items é um array e não um dado comum.
+
+    protected $casts = [
+        'items' => 'array'
+    ];
+
 }

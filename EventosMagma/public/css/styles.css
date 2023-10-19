@@ -209,6 +209,17 @@ header {
         
     }
 
+    #items-list {
+        list-style: none;
+        padding-left: 0;
+
+    }
+
+    #items-list li{
+        display: flex;
+        
+    }
+
 /* Footer */
 
 footer {

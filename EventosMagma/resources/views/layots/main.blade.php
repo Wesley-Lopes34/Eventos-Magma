@@ -30,7 +30,6 @@
                     <a href="/" class="navbar-brand">
                         <img src="/imgs/logo.png" alt="Eventos Magma" style="width: 75px; margin: 10px;">
                     </a>
-                        <h2 style="margin-right: 800px;">Eventos Magma</h3>
                     <ul class="navbar-nav">
                         <li class="nav-item"> 
                             <a href="/" class="nav-link">Inicio</a>
