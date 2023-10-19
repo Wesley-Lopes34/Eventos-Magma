@@ -166,7 +166,48 @@ header {
 
 }
 
+/* Página do evento */
+    #image-container,
+    #info-container{
+        margin-top: 30px;
 
+    }
+
+    #image-container img{
+        border-radius: 10px;
+
+    }
+
+    #infor-container h1{
+        font-size: 36px;
+        font-weight: 900;
+
+    }
+
+    #infor-container p{
+        margin: 0;
+        font-size: 14px;
+        display: flex;
+
+    }
+
+    #infor-container h3,
+    #description-container h3{
+        font-size: 20px;
+        font-weight: bold;
+
+    }
+
+    #infor-container ion-icon {
+        font-size: 20px;
+        color: #2a50f8;
+        margin-right: 5px;
+    }
+
+    #infor-container #event-submit {
+        margin: 20px 0;
+        
+    }
 
 /* Footer */
 
