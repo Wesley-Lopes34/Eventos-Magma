@@ -4,6 +4,7 @@
 
 @section('content')
 
+        <!--Essa é parte do botão saiba mais, aonde vai mostrar mais informações sobre o evento. -->
     <div class="col-md-10 offset-md-1">
         <div class="row">
             <div id="image-container" class="col-md-6">

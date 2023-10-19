@@ -3,8 +3,10 @@
 @section('title', 'Eventos Magma')
 
 @section('content')
+        <!--Essa parte é o index da página-->
 <link rel="stylesheet" href="/css/styles.css">
 
+        <!--Parte da lógica que chama a mensagem de que o evento foi criado com sucesso-->
 <?php
     session_start();
     if(isset($_SESSION['message'])){

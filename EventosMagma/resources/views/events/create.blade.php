@@ -4,6 +4,8 @@
 
 @section('content')
 
+<!-- Essa é a parte de criação dos eventos, com forms para cada campo do evento -->
+
 <div id="event-create-container" class="col-md-6 offset-md-3">
     <h1>Crie o seu evento</h1>
     <form action="/events" method="post" enctype="multipart/form-data">

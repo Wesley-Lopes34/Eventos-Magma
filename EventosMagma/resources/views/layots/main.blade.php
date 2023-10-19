@@ -24,6 +24,7 @@
     <body>
 
         <header>
+                        <!--Nav bar-->
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="collapse navbar-collapse" id="navbar">
                     <a href="/" class="navbar-brand">
@@ -52,8 +53,7 @@
 
 
         </header>
-
-        @yield('content')
+            @yield('content')
         <footer>
             <p>
                 Eventos Magma &copy; 2023

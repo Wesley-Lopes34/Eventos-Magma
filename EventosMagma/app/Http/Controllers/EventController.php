@@ -9,7 +9,9 @@ class EventController extends Controller
 {
     public function index(){
 //Trazendo os eventos para o Controller.
+
       $events = Event::all();
+      
 //Enviando para a parte o index do meu projeto todos os eventos da tabela Events.
 
       return view('welcome', ['events' => $events]);
@@ -63,7 +65,7 @@ class EventController extends Controller
         
         $events->save();
 
-//parte para checar e mandar mensagem caso o evento tenha sido criado com sucesso e logo após mensagem de alerta caso n tenha dado certo.
+//Parte para checar e mandar mensagem caso o evento tenha sido criado com sucesso e logo após mensagem de alerta caso não tenha dado certo.
         if($events){
             session_start();
 
@@ -83,7 +85,7 @@ class EventController extends Controller
 
     }
 
-
+//Parte que chama a view do botão Saiba Mais, ele pega o id do evento no banco de dados e chama a view puxando as informações daquele evento da id especifica.
     public function show($id){
 
         $event = Event::findorFail($id);
