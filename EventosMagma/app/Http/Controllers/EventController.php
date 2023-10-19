@@ -15,6 +15,8 @@ class EventController extends Controller
 
       return view('welcome', ['events' => $events]);
 
+      
+
     }
 
     public function create(){
@@ -90,6 +92,7 @@ class EventController extends Controller
         $event = Event::findorFail($id);
 
         return view('events.show', ['event' => $event]);
+
 
 
     }
