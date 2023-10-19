@@ -11,7 +11,6 @@ class EventController extends Controller
 //Trazendo os eventos para o Controller.
 
       $events = Event::all();
-      
 //Enviando para a parte o index do meu projeto todos os eventos da tabela Events.
 
       return view('welcome', ['events' => $events]);
@@ -31,8 +30,6 @@ class EventController extends Controller
 
         if($request->title == "" || $request->city == "" || $request->description == "" || $request->type == ""){
             session_start();
-
-            $_SESSION["message"] = " <script>  alert('Você esqueceu de preencher algum campo, tente novamente!')  </script>";
 
             return redirect('/');
 
@@ -62,14 +59,15 @@ class EventController extends Controller
             $events->image = $imageName;
 
         }
-        
+//Salva o evento no banco de dados
+
         $events->save();
 
 //Parte para checar e mandar mensagem caso o evento tenha sido criado com sucesso e logo após mensagem de alerta caso não tenha dado certo.
         if($events){
             session_start();
 
-            $_SESSION["message"] = " <script>  alert('Evento Criado com sucesso: ')  </script>";
+            $_SESSION["message"] = " <script>  alert('Evento Criado com sucesso!! ')  </script>";
 
             return redirect('/');
         }

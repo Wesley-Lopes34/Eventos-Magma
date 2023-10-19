@@ -7,14 +7,6 @@
 <link rel="stylesheet" href="/css/styles.css">
 
         <!--Parte da lógica que chama a mensagem de que o evento foi criado com sucesso-->
-<?php
-    session_start();
-    if(isset($_SESSION['message'])){
-        echo $_SESSION['message'];
-
-        unset ($_SESSION['message']);
-    }
-?>
 
     <div id="search-container" class="col-md-12">
         <h1>Busque um evento</h1>
@@ -39,5 +31,16 @@
             @endforeach
         </div>
     </div>
+
+        <!-- Chama a mensagem para dizer se deu certo ou não a criação de um evento. -->
+
+    <?php
+    session_start();
+    if(isset($_SESSION['message'])){
+        echo $_SESSION['message'];
+
+        unset ($_SESSION['message']);
+    }
+?>
 
 @endsection
