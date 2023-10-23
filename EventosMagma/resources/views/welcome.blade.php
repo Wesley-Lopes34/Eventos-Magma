@@ -10,21 +10,23 @@
 
     <div id="search-container" class="col-md-12">
         <h1>Busque um evento</h1>
-        <form action="">
+        <form action="/" method="get">
             <input type="" id="serach" name="search" class="form-control" placeholder="Procurar">
         </form>
     </div>
+
+<!-- Essa é uma verificação de busca, é só pra mudar a estetica do site pra caso seja feita uma busca.  -->
+
     <div id="events-container" class="col-md-12">
-        <h2>Próximos eventos</h2>
-        <p class="subtitle">Eventos dos próximos dias</p>
+        @if($search)
+            <h2>Mostrando resultados da busca: {{ $search }}</h2>
+        @else
+            <h2>Próximos eventos</h2>
+            <p class="subtitle">Eventos dos próximos dias</p>
+        @endif
 
- <!-- Essa parte é uma verificação para caso não tenha nenhum evento criado apareça uma mensagem, coisa pequena mas que eu demorei tanto tempo pra fazer que quando consegui eu escutei a musica "We Are the Champion" o resto do dia inteiro. -->
-
-        <?php 
-            if(count ($events) > 0){
-
-                ?>
                 <div id="cards-container" class="row">
+ <!-- Essa parte faz uma pesquisa da tabela Events e caso tenha algo, exiba as informações desse Evento. -->    
                 @foreach($events as $event)
                     <div class="card col-md-3">
                         <img src="/imgs/events/{{ $event->image  }}" alt="{{ $event->title; }}">
@@ -37,19 +39,16 @@
                     </div>
                  @endforeach
                 </div>
-                
-        <?php 
 
-            } else{
+<!-- Essa parte é uma verificação para caso não tenha nenhum evento criado apareça uma mensagem, coisa pequena mas que eu demorei tanto tempo pra fazer que quando consegui eu escutei a musica "We Are the Champion" o resto do dia inteiro. -->
 
-                echo 'Não tem nenhum evento cadastrado!!';
-            }
-        ?>
-                            
-
-
-        </div>
+            @if(count ($events) == 0 && $search)
+                <p>Não foi possivel encontrar nenhum evento com: {{ $search }}! <a href="/">Ver todos!!</a></p>   
+            @elseif( count ($events) == 0)
+                <p>Não tem nenhum evento cadastrado!!</p>
+            @endif            
     </div>
+</div>
         <!-- Chama a mensagem para dizer se deu certo ou não a criação de um evento. -->
 
     <?php

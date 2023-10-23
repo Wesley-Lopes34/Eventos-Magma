@@ -8,13 +8,26 @@ use App\Models\Event;
 class EventController extends Controller
 {
     public function index(){
-//Trazendo os eventos para o Controller.
 
-      $events = Event::all();
+        $search = request('search');
+//Nessa parte é a lógica para a busca de eventos, se na minha pesquisar tiver uma palavra chave tal ou parecida, eu quero que mostre no meu Welcome esse evento.
+
+        if($search){
+            $events = Event::where([
+                ['title', 'like', '%'.$search.'%']
+            ])->get();
+
+        }
+        else{
+//Caso não encontre ou não seja feita nenhuma pesquisa, é para mostrar todos os eventos cadastrados.
+            $events = Event::all();
+
+        }
+
+     
 //Enviando para a parte o index do meu projeto todos os eventos da tabela Events.
 
-    
-      return view('welcome', ['events' => $events,]);
+      return view('welcome', ['events' => $events, 'search' => $search]);
 
       
     }
