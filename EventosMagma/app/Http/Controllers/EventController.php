@@ -39,6 +39,7 @@ class EventController extends Controller
 //Nesa parte ta pegando os dados dos forms para colocar no banco de dados.
         
         $events->title = $request->title;
+        $events->date = $request->date;
         $events->city = $request->city;
         $events->description = $request->description;
         $events->type = $request->type;
