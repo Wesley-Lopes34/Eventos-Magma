@@ -14,14 +14,9 @@ class EventController extends Controller
 //Enviando para a parte o index do meu projeto todos os eventos da tabela Events.
 
     
-
-      return view('welcome', 
-      ['events' => $events,
-        'msg' => 'Não tem nenhum evento cadastrado!!'
-    ]);
+      return view('welcome', ['events' => $events,]);
 
       
-
     }
 
     public function create(){
@@ -49,8 +44,8 @@ class EventController extends Controller
         $events->type = $request->type;
         $events->image = $request->image;
         $events->items = $request->items;
-        $events->id = $request->id;
-
+      
+        
 //parte de envio de imagens, lógica.
 
         if($request->hasFile('image') && $request->file('image')->isValid()){
@@ -93,12 +88,12 @@ class EventController extends Controller
     }
 
 //Parte que chama a view do botão Saiba Mais, ele pega o id do evento no banco de dados e chama a view puxando as informações daquele evento da id especifica.
+
     public function show($id){
 
         $event = Event::findorFail($id);
 
         return view('events.show', ['event' => $event]);
-
 
 
     }

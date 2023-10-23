@@ -17,7 +17,9 @@
     <div id="events-container" class="col-md-12">
         <h2>Próximos eventos</h2>
         <p class="subtitle">Eventos dos próximos dias</p>
- 
+
+ <!-- Essa parte é uma verificação para caso não tenha nenhum evento criado apareça uma mensagem, coisa pequena mas que eu demorei tanto tempo pra fazer que quando consegui eu escutei a musica "We Are the Champion" o resto do dia inteiro. -->
+
         <?php 
             if(count ($events) > 0){
 
@@ -35,13 +37,14 @@
                     </div>
                  @endforeach
                 </div>
-                         <?php 
+                
+        <?php 
 
-                            } else{
+            } else{
 
-                                echo $msg;
-                            }
-                         ?>
+                echo 'Não tem nenhum evento cadastrado!!';
+            }
+        ?>
                             
 
 
