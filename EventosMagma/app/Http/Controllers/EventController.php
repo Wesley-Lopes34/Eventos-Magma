@@ -13,7 +13,12 @@ class EventController extends Controller
       $events = Event::all();
 //Enviando para a parte o index do meu projeto todos os eventos da tabela Events.
 
-      return view('welcome', ['events' => $events]);
+    
+
+      return view('welcome', 
+      ['events' => $events,
+        'msg' => 'Não tem nenhum evento cadastrado!!'
+    ]);
 
       
 
@@ -44,6 +49,7 @@ class EventController extends Controller
         $events->type = $request->type;
         $events->image = $request->image;
         $events->items = $request->items;
+        $events->id = $request->id;
 
 //parte de envio de imagens, lógica.
 
@@ -96,5 +102,7 @@ class EventController extends Controller
 
 
     }
+
+    
 }
   
