@@ -17,34 +17,36 @@
     <div id="events-container" class="col-md-12">
         <h2>Próximos eventos</h2>
         <p class="subtitle">Eventos dos próximos dias</p>
+ 
         <?php 
-        
-        if(!empty($events)){ 
+            if(!empty($events->$event)){
             
             ?>
-        <div id="cards-container" class="row">
-            @foreach($events as $event)
-                <div class="card col-md-3">
-                    <img src="/imgs/events/{{ $event->image  }}" alt="{{ $event->title; }}">
-                    <div class="card-body">
-                        <p class="card-date">10/20/20</p>
-                        <h5 class="card-title">{{ $event->title }}</h5>
-                        <p class="card-participants">x pessoas</p>
-                        <a href="/events/{{ $event->id }}" class="btn btn-primary">Saber Mais</a>
-                    </div>
-                </div>
-                @endforeach
-           <?php
-        }
-        else{
-                echo "Nada por aqui!";
-        } ?>
+                <div id="cards-container" class="row">
+                    @foreach($events as $event)
+                        <div class="card col-md-3">
+                            <img src="/imgs/events/{{ $event->image  }}" alt="{{ $event->title; }}">
+                            <div class="card-body">
+                                <p class="card-date">10/20/20</p>
+                                <h5 class="card-title">{{ $event->title }}</h5>
+                                <p class="card-participants">x pessoas</p>
+                                <a href="/events/{{ $event->id }}" class="btn btn-primary">Saber Mais</a>
+                            </div>
+                        </div>
+                    @endforeach
+                        <?php  
+                            }else{
+                                echo "abacaxi";
+                            }
+                        ?>
+                        
+
+        
+                        
 
 
-          
         </div>
     </div>
-
         <!-- Chama a mensagem para dizer se deu certo ou não a criação de um evento. -->
 
     <?php
