@@ -17,7 +17,11 @@
     <div id="events-container" class="col-md-12">
         <h2>Próximos eventos</h2>
         <p class="subtitle">Eventos dos próximos dias</p>
-        <?php if($events){  ?>
+        <?php 
+        
+        if(!empty($events)){ 
+            
+            ?>
         <div id="cards-container" class="row">
             @foreach($events as $event)
                 <div class="card col-md-3">
@@ -29,14 +33,16 @@
                         <a href="/events/{{ $event->id }}" class="btn btn-primary">Saber Mais</a>
                     </div>
                 </div>
-            @endforeach
-        </div>
-        <?php 
-        }else{
-                echo "Errado";
+                @endforeach
+           <?php
+        }
+        else{
+                echo "Nada por aqui!";
         } ?>
 
-    
+
+          
+        </div>
     </div>
 
         <!-- Chama a mensagem para dizer se deu certo ou não a criação de um evento. -->
