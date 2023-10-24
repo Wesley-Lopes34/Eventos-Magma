@@ -28,19 +28,24 @@
                 <div id="cards-container" class="row">
  <!-- Essa parte faz uma pesquisa da tabela Events e caso tenha algo, exiba as informações desse Evento. -->    
                 @foreach($events as $event)
-                    <div class="card col-md-3">
+                    <div class="card col-md-4">
                         <img src="/imgs/events/{{ $event->image  }}" alt="{{ $event->title; }}">
+                            
+            
                         <div class="card-body">
                                 <p class="card-date">{{ date('d/m/y', strtotime($event->date)) }}</p>
                                     <h5 class="card-title">{{ $event->title }}</h5>
                                 <p class="card-participants">x pessoas</p>
                             <a href="/events/{{ $event->id }}" class="btn btn-primary">Saber Mais</a>
                         </div>
+                        
                     </div>
-                    <a href="/">Ver todos!!</a>
+                    
                  @endforeach
                 </div>
-
+                    <a href="/">Ver todos!!</a>
+                </div>
+    
 <!-- Essa parte é uma verificação para caso não tenha nenhum evento criado apareça uma mensagem, coisa pequena mas que eu demorei tanto tempo pra fazer que quando consegui eu escutei a musica "We Are the Champion" o resto do dia inteiro. -->
 
             @if(count ($events) == 0 && $search)

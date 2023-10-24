@@ -36,6 +36,7 @@ class EventController extends Controller
 
         return view('events.create');
 
+
     }
 
     public function store(Request $request){
@@ -64,7 +65,7 @@ class EventController extends Controller
 
         if($request->hasFile('image') && $request->file('image')->isValid()){
             
-            
+
             $requestImage = $request->image;
            
 //Pegar a imagem.
@@ -75,6 +76,10 @@ class EventController extends Controller
             $requestImage->move(public_path('imgs/events'), $imageName);
 
             $events->image = $imageName;
+
+        }elseif(empty('image')){
+
+            $requestImage = ('/imgs/logo.png');
 
         }
 //Salva o evento no banco de dados
