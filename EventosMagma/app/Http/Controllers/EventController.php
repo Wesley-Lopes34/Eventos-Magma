@@ -63,11 +63,12 @@ class EventController extends Controller
         
 //parte de envio de imagens, lógica.
 
-        if($request->hasFile('image') && $request->file('image')->isValid()){
+        if($request->hasFile('image') && $request->file('image')->isValid() && !empty($request)){
             
 
             $requestImage = $request->image;
            
+
 //Pegar a imagem.
             $extension = $requestImage->extension();
 //Pegar nome da imagem.
@@ -77,10 +78,10 @@ class EventController extends Controller
 
             $events->image = $imageName;
 
-        }elseif(empty('image')){
+        }else{
+            $imageName = 'logo.png';
 
-            $requestImage = ('/imgs/logo.png');
-
+            $events->image = $imageName;
         }
 //Salva o evento no banco de dados
 

@@ -57,7 +57,6 @@
         <div class="form-group">
             <label for="image">Imagem do Evento: </label>
                 <input type="file" id="image" name="image" class="form-control-file">
-                
         </div>
         <input type="submit" class="btn btn-primary" value="Criar Evento">
     </form>
