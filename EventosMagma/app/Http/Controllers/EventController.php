@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 //Essa parte é como se fosse a parte de imports, eu estou importando do Model a parte de eventos.
 use Illuminate\Http\Request;
 use App\Models\Event;
+use League\CommonMark\Node\Block\Document;
 
 class EventController extends Controller
 {
@@ -36,10 +37,9 @@ class EventController extends Controller
 
         return view('events.create');
 
-        
-
 
     }
+
 
     public function store(Request $request){
 
@@ -53,7 +53,18 @@ class EventController extends Controller
         $events->description = $request->description;
         $events->type = $request->type;
         $events->image = $request->image;
-        $events->items = $request->items;
+        
+
+        $valueCheckbox = $events->items = $request->items;
+
+//nessa parte eu estou pegando a parte de OUTROS na criação de eventos e pegando a parte de mais itens de estrutura, aonde eu crio uma variavel para receber esses dados e coloco eles em um array, depois eu retiro as virgulas e a cada vrigula eu estabeleço um novo dado para o array e depois eu junto os dois arrays, o de que items que recebe os itens do checkbox e da parte de texto.
+        $valueTextArea = $_POST['items_textarea'];
+
+        $valueTextArea = explode(',', $valueTextArea);
+
+        $arrayCombinado = array_merge($valueCheckbox, $valueTextArea);
+
+        $events->items = $arrayCombinado;
       
         
 //parte de envio de imagens, lógica.
@@ -108,10 +119,22 @@ class EventController extends Controller
 
         $event = Event::findorFail($id);
 
+        
+            $dataEvento = $event->date;
+
+            $datenow = date('Y-m-d');
+
+            if($datenow > $dataEvento){
+                return redirect('/');
+            }
+
+      
+
         return view('events.show', ['event' => $event]);
-
-
+        
+        
     }
 
+    
 }
   

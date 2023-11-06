@@ -34,7 +34,26 @@
                                 <p class="card-date">{{ date('d/m/y', strtotime($event->date)) }}</p>
                                     <h5 class="card-title">{{ $event->title }}</h5>
                                 <p class="card-participants">x pessoas</p>
-                            <a href="/events/{{ $event->id }}" class="btn btn-primary">Saber Mais</a>
+                            <?php 
+
+                            $datenow = date('Y-m-d');
+                               if($datenow > $event->date){
+
+                                ?>
+
+                                <button class="btn btn-danger">A data do Eveto já passou, não é mais possivel participar do mesmo!!</button>
+                               
+                                <?php 
+                               }else{
+
+                               
+                                ?>
+                           
+                                <a href="/events/{{ $event->id }}" class="btn btn-primary">Saber Mais</a>
+
+                                <?php 
+                                        }
+                                ?>
                         </div>
                         
                     </div>
