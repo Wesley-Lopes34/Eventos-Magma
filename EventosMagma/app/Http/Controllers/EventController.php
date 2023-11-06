@@ -36,20 +36,15 @@ class EventController extends Controller
 
         return view('events.create');
 
+        
+
 
     }
 
     public function store(Request $request){
 
         $events = new Event;
-//Parte de checagem, para ver se não tem nada vazio dentro dos forms.
 
-        if($request->title == "" || $request->city == "" || $request->description == "" || $request->type == ""){
-            session_start();
-
-            return redirect('/');
-
-        }
 //Nesa parte ta pegando os dados dos forms para colocar no banco de dados.
         
         $events->title = $request->title;
@@ -118,6 +113,5 @@ class EventController extends Controller
 
     }
 
-    
 }
   

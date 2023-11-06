@@ -53,6 +53,11 @@
         <div class="form-group">
             <input type="checkbox" name="items[]" value="Brindes"> Brindes
         </div>
+        <div class="form-group">
+            <label for="imagem" id="outros" class="form-control">Outros: </label>
+            <textarea type="text" name="items[]" placeholder="Outros" value=""></textarea>
+        </div>
+
     </div>
         <div class="form-group">
             <label for="image">Imagem do Evento: </label>
