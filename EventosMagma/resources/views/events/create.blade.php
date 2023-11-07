@@ -55,9 +55,8 @@
         </div>
         <div class="form-group">
             <label for="imagem" id="outros">Outros: </label>
-            <textarea type="text" class="form-control" name="items_textarea" placeholder="Outros" value=""></textarea><button class="btn btn-primary" onclick="others()">Adicinar item</button>
+            <textarea type="text" class="form-control" name="items_textarea" placeholder="Outros" value=""></textarea>
             <input type="checkbox" name="items[]" value="Brindes">
-            
         </div>
 
     </div>

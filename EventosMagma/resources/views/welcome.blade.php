@@ -20,12 +20,14 @@
     <div id="events-container" class="col-md-12">
         @if($search)
             <h2>Mostrando resultados da busca: {{ $search }}</h2>
+            <p><a href="/">Ver todos!!</a></p>
         @else
             <h2>Próximos eventos</h2>
             <p class="subtitle">Eventos dos próximos dias</p>
         @endif
 
                 <div id="cards-container" class="row">
+
  <!-- Essa parte faz uma pesquisa da tabela Events e caso tenha algo, exiba as informações desse Evento. -->    
                 @foreach($events as $event)
                     <div class="card col-md-4">
@@ -34,39 +36,36 @@
                                 <p class="card-date">{{ date('d/m/y', strtotime($event->date)) }}</p>
                                     <h5 class="card-title">{{ $event->title }}</h5>
                                 <p class="card-participants">x pessoas</p>
-                            <?php 
 
-                            $datenow = date('Y-m-d');
-                               if($datenow > $event->date){
+                    <?php 
 
-                                ?>
+                        $datenow = date('Y-m-d');
+                        if($datenow > $event->date){
 
-                                <button class="btn btn-danger">A data do Eveto já passou, não é mais possivel participar do mesmo!!</button>
+                    ?>
+
+                        <button class="btn btn-danger">A data do Eveto já passou, não é mais possivel participar do mesmo!!</button>
                                
-                                <?php 
-                               }else{
+                    <?php 
 
-                               
-                                ?>
+                        }else{
+     
+                    ?>
                            
-                                <a href="/events/{{ $event->id }}" class="btn btn-primary">Saber Mais</a>
+                        <a href="/events/{{ $event->id }}" class="btn btn-primary">Saber Mais</a>
 
-                                <?php 
-                                        }
-                                ?>
+                    <?php 
+                        }
+                    ?>
                         </div>
                         
                     </div>
                     
                  @endforeach
-                </div>
-                    <a href="/">Ver todos!!</a>
-                </div>
     
 <!-- Essa parte é uma verificação para caso não tenha nenhum evento criado apareça uma mensagem, coisa pequena mas que eu demorei tanto tempo pra fazer que quando consegui eu escutei a musica "We Are the Champion" o resto do dia inteiro. -->
-
             @if(count ($events) == 0 && $search)
-                <p>Não foi possivel encontrar nenhum evento com: {{ $search }}! <a href="/">Ver todos!!</a></p>   
+                <p>Não foi possivel encontrar nenhum evento com: {{ $search }}!</p>   
             @elseif( count ($events) == 0)
                 <p>Não tem nenhum evento cadastrado!!</p>
             @endif            

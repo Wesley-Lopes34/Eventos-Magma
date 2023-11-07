@@ -20,7 +20,6 @@
                     <h3>O evento conta com:</h3>
 
 <!--  Essa parte exibe a lista de infraestrutura do evento e logo após temos uma verificação para caso não tenha nenhum item selecionado, exiba uma mensagem. -->
-
                     <?php 
                 if(!empty($event->items)){
   
