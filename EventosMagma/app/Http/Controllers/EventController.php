@@ -37,7 +37,6 @@ class EventController extends Controller
 
         return view('events.create');
 
-
     }
 
 
@@ -54,7 +53,6 @@ class EventController extends Controller
         $events->type = $request->type;
         $events->image = $request->image;
         
-
         $valueCheckbox = $events->items = $request->items;
 
 //nessa parte eu estou pegando a parte de OUTROS na criação de eventos e pegando a parte de mais itens de estrutura, aonde eu crio uma variavel para receber esses dados e coloco eles em um array, depois eu retiro as virgulas e a cada vrigula eu estabeleço um novo dado para o array e depois eu junto os dois arrays, o de que items que recebe os itens do checkbox e da parte de texto.
@@ -65,16 +63,13 @@ class EventController extends Controller
         $arrayCombinado = array_merge($valueCheckbox, $valueTextArea);
 
         $events->items = $arrayCombinado;
-      
-        
+       
 //parte de envio de imagens, lógica.
 
         if($request->hasFile('image') && $request->file('image')->isValid() && !empty($request)){
             
-
             $requestImage = $request->image;
            
-
 //Pegar a imagem.
             $extension = $requestImage->extension();
 //Pegar nome da imagem.

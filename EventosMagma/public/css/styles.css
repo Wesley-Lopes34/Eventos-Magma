@@ -167,6 +167,15 @@ header {
 
 }
 
+#text-alert{
+    background-color: #757575;
+    font-size: 15px;
+    margin-top: 10px;
+    font-weight: bold;
+    padding: 3px;
+
+}
+
 /* Página do evento */
     #image-container,
     #info-container{
