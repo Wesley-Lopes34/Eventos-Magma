@@ -3,10 +3,10 @@
 @section('title', 'Eventos Magma')
 
 @section('content')
-        <!--Essa parte é o index da página-->
-<link rel="stylesheet" href="/css/styles.css">
+<!--Essa parte é o index da página-->
+    <link rel="stylesheet" href="/css/styles.css">
 
-        <!--Parte da lógica que chama a mensagem de que o evento foi criado com sucesso-->
+<!--Parte da lógica que chama a mensagem de que o evento foi criado com sucesso-->
 
     <div id="search-container" class="col-md-12">
         <h1>Busque um evento</h1>
@@ -22,7 +22,7 @@
             <p><a href="/">Ver todos!!</a></p>
         @else
             <h2>Próximos eventos</h2>
-            <p class="subtitle">Eventos dos próximos dias</p>
+            <p class="subtitle">Eventos dos próximos dias:</p>
         @endif
 
                 <div id="cards-container" class="row">

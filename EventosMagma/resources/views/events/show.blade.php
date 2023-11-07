@@ -20,20 +20,19 @@
                     <h3>O evento conta com:</h3>
 
 <!--  Essa parte exibe a lista de infraestrutura do evento e logo após temos uma verificação para caso não tenha nenhum item selecionado, exiba uma mensagem. -->
-                    <?php 
-                if(!empty($event->items)){
-  
+                <?php 
+                    if(!empty($event->items)){
                 ?>
                     <ul id="items-list">
-                    
                         @foreach($event->items as $item)
                             <li><ion-icon name="play-outline"></ion-icon><span> {{ $item }} </span></li>
                         @endforeach
                     </ul>
+
                     <?php 
-                }   else{
-                        echo "O evento não possui infraestrutura solicitada!";
-                }                 
+                        }else{
+                            echo "O evento não possui infraestrutura solicitada!";
+                        }                 
                     ?>
             </div>
             <div class="col-md-12" id="description-container">
