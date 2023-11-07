@@ -84,8 +84,11 @@ class EventController extends Controller
 
             $events->image = $imageName;
         }
-//Salva o evento no banco de dados
 
+        $user = auth()->user();
+        $events->user_id = $user->id;
+
+//Salva o evento no banco de dados
         $events->save();
 
 //Parte para checar e mandar mensagem caso o evento tenha sido criado com sucesso e logo após mensagem de alerta caso não tenha dado certo.
@@ -107,7 +110,6 @@ class EventController extends Controller
     }
 
 //Parte que chama a view do botão Saiba Mais, ele pega o id do evento no banco de dados e chama a view puxando as informações daquele evento da id especifica.
-
     public function show($id){
 
         $event = Event::findorFail($id);
