@@ -54,9 +54,9 @@
             <input type="checkbox" name="items[]" value="Brindes"> Brindes
         </div>
         <div class="form-group">
+<!--Nessa parte de OUTROS, eu criei uma nova váriavel para receber os valores que forem digitados nessa parte, e depois eu junto esses valores com o resto dos itens-->
             <label for="imagem" id="outros">Outros: </label>
             <textarea type="text" class="form-control" name="items_textarea" placeholder="Outros" value=""></textarea>
-            <input type="checkbox" name="items[]" value="Brindes">
         </div>
 
     </div>

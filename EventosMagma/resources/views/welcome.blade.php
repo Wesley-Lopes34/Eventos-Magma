@@ -16,7 +16,6 @@
     </div>
 
 <!-- Essa é uma verificação de busca, é só pra mudar a estetica do site pra caso seja feita uma busca.  -->
-
     <div id="events-container" class="col-md-12">
         @if($search)
             <h2>Mostrando resultados da busca: {{ $search }}</h2>
@@ -28,7 +27,7 @@
 
                 <div id="cards-container" class="row">
 
- <!-- Essa parte faz uma pesquisa da tabela Events e caso tenha algo, exiba as informações desse Evento. -->    
+<!-- Essa parte faz uma pesquisa da tabela Events e caso tenha algo, exiba as informações desse Evento. -->    
                 @foreach($events as $event)
                     <div class="card col-md-4">
                         <img src="/imgs/events/{{ $event->image  }}" alt="{{ $event->title; }}">
@@ -37,6 +36,7 @@
                                     <h5 class="card-title">{{ $event->title }}</h5>
                                 <p class="card-participants">x pessoas</p>
 
+<!--Nessa parte eu estou fazendo uma verificação para que caso a data de um evento já tenha passado, ele fique inacessivel-->
                     <?php 
 
                         $datenow = date('Y-m-d');
@@ -51,14 +51,15 @@
                         }else{
      
                     ?>
-                           
+         
                         <a href="/events/{{ $event->id }}" class="btn btn-primary">Saber Mais</a>
 
                     <?php 
+
                         }
                     ?>
-                        </div>
-                        
+
+                        </div>    
                     </div>
                     
                  @endforeach
@@ -71,8 +72,8 @@
             @endif            
     </div>
 </div>
-        <!-- Chama a mensagem para dizer se deu certo ou não a criação de um evento. -->
 
+        <!-- Chama a mensagem para dizer se deu certo ou não a criação de um evento. -->
     <?php
     session_start();
     if(isset($_SESSION['message'])){

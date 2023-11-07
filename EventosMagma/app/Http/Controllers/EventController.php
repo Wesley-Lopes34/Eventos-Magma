@@ -109,8 +109,6 @@ class EventController extends Controller
             return redirect('/');
         }
 
-        
-
     }
 
 //Parte que chama a view do botão Saiba Mais, ele pega o id do evento no banco de dados e chama a view puxando as informações daquele evento da id especifica.
@@ -119,7 +117,7 @@ class EventController extends Controller
 
         $event = Event::findorFail($id);
 
-        
+//Nessa parte que acontece a checagem de que se a data do evento já tiver passado, ele te redirecione para a página principal, um verificação que pode evitar possiveis problemas
             $dataEvento = $event->date;
 
             $datenow = date('Y-m-d');
@@ -128,10 +126,7 @@ class EventController extends Controller
                 return redirect('/');
             }
 
-      
-
-        return view('events.show', ['event' => $event]);
-        
+        return view('events.show', ['event' => $event]);   
         
     }
 
