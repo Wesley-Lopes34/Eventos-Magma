@@ -28,9 +28,14 @@
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="collapse navbar-collapse" id="navbar">
                     <a href="/" class="navbar-brand">
+                        <div style="position: absolute; top: 24px; left: 90px; color: black;">
+                            <h2>Eventos</h2>
+                            <h2>Magma</h2>
+                        </div>
+                   
                         <img src="/imgs/logo.png" alt="Eventos Magma" style="width: 75px; margin: 10px;">
                     </a>
-                        <h2 style="margin-right: 625px;">Eventos Magma</h3>
+                        
                     <ul class="navbar-nav">
                         <li class="nav-item"> 
                             <a href="/" class="nav-link">Inicio</a>
