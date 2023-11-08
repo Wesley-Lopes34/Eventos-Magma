@@ -19,7 +19,6 @@
 
         <!-- CSS da aplicação -->
 
-
     </head>
     <body>
 
@@ -67,13 +66,11 @@
                             <a href="/register" class="nav-link">Cadastrar</a>
                         </li>
                         @endguest
-
                     </ul>
                 </div>
             </nav>
-
-
         </header>
+
             @yield('content')
         <footer>
             <p>

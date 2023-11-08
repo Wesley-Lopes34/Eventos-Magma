@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="/css/styles.css">
 
 <!--Parte da lógica que chama a mensagem de que o evento foi criado com sucesso-->
-
     <div id="search-container" class="col-md-12">
         <h1>Busque um evento</h1>
         <form action="/" method="get">
@@ -51,7 +50,7 @@
                         }else{
      
                     ?>
-         
+                    
                         <a href="/events/{{ $event->id }}" class="btn btn-primary">Saber Mais</a>
 
                     <?php 

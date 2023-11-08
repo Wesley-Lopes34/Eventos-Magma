@@ -10,8 +10,8 @@ class EventController extends Controller
 {
     public function index(){
 
-        $search = request('search');
 //Nessa parte é a lógica para a busca de eventos, se na minha pesquisar tiver uma palavra chave tal ou parecida, eu quero que mostre no meu Welcome esse evento.
+        $search = request('search');
 
         if($search){
             $events = Event::where([
@@ -20,6 +20,7 @@ class EventController extends Controller
 
         }
         else{
+
 //Caso não encontre ou não seja feita nenhuma pesquisa, é para mostrar todos os eventos cadastrados.
             $events = Event::all();
 
@@ -27,9 +28,7 @@ class EventController extends Controller
 
      
 //Enviando para a parte o index do meu projeto todos os eventos da tabela Events.
-
       return view('welcome', ['events' => $events, 'search' => $search]);
-
       
     }
 
@@ -44,8 +43,7 @@ class EventController extends Controller
 
         $events = new Event;
 
-//Nesa parte ta pegando os dados dos forms para colocar no banco de dados.
-        
+//Nesa parte ta pegando os dados dos forms para colocar no banco de dados. 
         $events->title = $request->title;
         $events->date = $request->date;
         $events->city = $request->city;
@@ -65,13 +63,13 @@ class EventController extends Controller
         $events->items = $arrayCombinado;
        
 //parte de envio de imagens, lógica.
-
         if($request->hasFile('image') && $request->file('image')->isValid() && !empty($request)){
             
             $requestImage = $request->image;
            
 //Pegar a imagem.
             $extension = $requestImage->extension();
+
 //Pegar nome da imagem.
             $imageName = md5($requestImage->getClientOriginalName() . strtotime('now')) . '.' . $extension;
 
@@ -85,6 +83,7 @@ class EventController extends Controller
             $events->image = $imageName;
         }
 
+//Parte de autenticação de usuario para online
         $user = auth()->user();
         $events->user_id = $user->id;
 
