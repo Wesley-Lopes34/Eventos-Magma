@@ -138,7 +138,6 @@ class EventController extends Controller
 //Pegando os eventos do usuario usando oque foi feito do Models.
         $events = $user->events;
 
-
         return view('events.dashboard', ['events' => $events]);
 
     }

@@ -4,10 +4,14 @@
 
 @section('content')
 
+<!--Nessa parte é a parte de Meus eventos da Navbar, aonde é possivel ver e modificar os eventos do usuario logado.-->
+
 <div class="col-md-10 offset-md-1 dashboard-title-container">
     <h1>Meus eventos</h1>
 </div>
 <div class="col-md-10 offset-md-1 dashboard-events-container">
+
+<!--Aqui é feita uma verificação para que se caso o usuario não tenha criado nenhum evento, apareça uma mensagem e um link que ó leva para a parte de criação de eventos.-->
     @if(count($events) > 0)
         <table class="table">
                 <head>
@@ -21,6 +25,8 @@
             <tbody>
                 @foreach($events as $event)
                     <tr>
+
+<!--Nessa parte eu estou atribuindo sempre a parte do index +1, para que o número de eventos nunca bugue ou que não dê um erro na contagem do número de eventos cadastrados pelo usuario. -->
                         <td scope="row"> {{ $loop->index + 1 }} </td>
                         <td><a href="/events/{{ $event->id }}"> {{ $event->title }} </a></td>
                         <td>0</td>
@@ -31,7 +37,7 @@
             </tbody>
         </table>
     @else
-    <p>Você ainda não tem eventos, <a href="/events/create">Criar evento</a></p>
+        <p>Você ainda não tem eventos, <a href="/events/create">Criar evento</a></p>
     @endif
 </div>
 

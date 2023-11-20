@@ -31,5 +31,7 @@ Route::get('/eventos/{id}', function ($id) {
 Route::get('/events/create', [EventController::class, 'create'])->middleware('auth');
 Route::get('/events/{id}', [EventController::class, 'show']);
 Route::post("/events", [EventController::class, 'store']);
+
+//Criação da parte que envia para a tela de Dashboard para caso o usuario esteja logado.
 Route::get('/dashboard', [EventController::class, 'dashboard'])->middleware('auth');
 
