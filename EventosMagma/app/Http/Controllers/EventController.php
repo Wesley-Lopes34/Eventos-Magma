@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Event;
 use League\CommonMark\Node\Block\Document;
+use App\Models\User;
 
 class EventController extends Controller
 {
@@ -121,8 +122,10 @@ class EventController extends Controller
             if($datenow > $dataEvento){
                 return redirect('/');
             }
+//Nessa parte eu estou atribuindo o valor do id do user para uma váriavel que vai ser a váriavel que vai receber o valor de quem é o dono do evento, eu estou pegando o primeiro id que a busca fizer e transformo ele em array porque um mesmo usuário pode ali ser o dono de mais de um evento e logo após eu passo o dado da váriavel para a minha view para que ela possa receber tudo certinho.
+            $eventOwner = User::where('id', $event->user_id)->first()->toArray();
 
-        return view('events.show', ['event' => $event]);   
+        return view('events.show', ['event' => $event, 'eventOwner' => $eventOwner]);   
         
     }
 
