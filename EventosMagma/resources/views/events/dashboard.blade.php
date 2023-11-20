@@ -24,9 +24,9 @@
                 </head>
             <tbody>
                 @foreach($events as $event)
-                    <tr>
-
+                
 <!--Nessa parte eu estou atribuindo sempre a parte do index +1, para que o número de eventos nunca bugue ou que não dê um erro na contagem do número de eventos cadastrados pelo usuario. -->
+                    <tr>
                         <td scope="row"> {{ $loop->index + 1 }} </td>
                         <td><a href="/events/{{ $event->id }}"> {{ $event->title }} </a></td>
                         <td>0</td>
