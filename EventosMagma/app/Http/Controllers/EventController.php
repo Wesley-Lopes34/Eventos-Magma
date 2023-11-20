@@ -122,6 +122,7 @@ class EventController extends Controller
             if($datenow > $dataEvento){
                 return redirect('/');
             }
+
 //Nessa parte eu estou atribuindo o valor do id do user para uma váriavel que vai ser a váriavel que vai receber o valor de quem é o dono do evento, eu estou pegando o primeiro id que a busca fizer e transformo ele em array porque um mesmo usuário pode ali ser o dono de mais de um evento e logo após eu passo o dado da váriavel para a minha view para que ela possa receber tudo certinho.
             $eventOwner = User::where('id', $event->user_id)->first()->toArray();
 
@@ -129,6 +130,19 @@ class EventController extends Controller
         
     }
 
-    
+    public function dashboard(){
+
+//Nessa parte eu estou pegando o usuario que está logado.
+        $user = auth()->user();
+
+//Pegando os eventos do usuario usando oque foi feito do Models.
+        $events = $user->events;
+
+
+        return view('events.dashboard', ['events' => $events]);
+
+    }
+
+
 }
   

@@ -27,16 +27,9 @@ Route::get('/eventos/{id}', function ($id) {
     return view('eventos', ['id' => $id]);
 });
 
-//Nessa parte de create, eu estabeleci uma regra de que essa parte só irá aparecer para usuarios que estiverem logados, ou seja um ghost não poderá criar um evento impedindo de possiveis bugs futuros e erros de lógica
+//Nessa parte de create, eu estabeleci uma regra de que essa parte só irá aparecer para usuarios que estiverem logados(middleware), ou seja um ghost não poderá criar um evento impedindo de possiveis bugs futuros e erros de lógica
 Route::get('/events/create', [EventController::class, 'create'])->middleware('auth');
 Route::get('/events/{id}', [EventController::class, 'show']);
 Route::post("/events", [EventController::class, 'store']);
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
+Route::get('/dashboard', [EventController::class, 'dashboard'])->middleware('auth');
+

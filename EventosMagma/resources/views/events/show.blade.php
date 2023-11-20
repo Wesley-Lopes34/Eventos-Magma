@@ -4,14 +4,15 @@
 
 @section('content')
 
-        <!--Essa é parte do botão saiba mais, aonde vai mostrar mais informações sobre o evento. -->
+<!--Essa é parte do botão saiba mais, aonde vai mostrar mais informações sobre o evento. -->
     <div class="col-md-10 offset-md-1">
         <div class="row">
             
             <div id="image-container" class="col-md-6">
                     <img src="/imgs/events/{{ $event->image }}" style="width: 100%;" class="img-fluid" alt="{{ $event->title }}">
                 </div>
-        <!--Nessa parte eu estou pegando os dados das váriaveis e passando eles para os respectivos campos que é para esses dados aparecerem-->
+                
+<!--Nessa parte eu estou pegando os dados das váriaveis e passando eles para os respectivos campos que é para esses dados aparecerem-->
                 <div id="infor-container" class="col-md-6">
                     <h1>{{ $event->title }}</h1>
                     <p class="event-city"><ion-icon name="location-outline"></ion-icon> {{ $event->city }}</p>
