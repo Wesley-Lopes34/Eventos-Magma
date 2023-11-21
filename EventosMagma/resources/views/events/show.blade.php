@@ -5,9 +5,9 @@
 @section('content')
 
 <!--Essa é parte do botão saiba mais, aonde vai mostrar mais informações sobre o evento. -->
+
     <div class="col-md-10 offset-md-1">
-        <div class="row">
-            
+        <div class="row">  
             <div id="image-container" class="col-md-6">
                 <img src="/imgs/events/{{ $event->image }}" style="width: 100%;" class="img-fluid" alt="{{ $event->title }}">
             </div>
@@ -18,6 +18,7 @@
                     <p class="event-city"><ion-icon name="location-outline"></ion-icon> {{ $event->city }}</p>
                     <p class="events-participants"><ion-icon name="people-outline"></ion-icon>X participantes</p>
                     <p class="events-owner"><ion-icon name="star-outline"></ion-icon> {{ $eventOwner['name'] }}</p>
+                    <p class="event-date"><ion-icon name="calendar-outline"></ion-icon> {{ date('d/m/y', strtotime($event->date)) }}</p>
                     <a href="#" class="btn btn-primary" id="event-submit">Confirmar Presença</a>
                     <h3>O evento conta com:</h3>
 
