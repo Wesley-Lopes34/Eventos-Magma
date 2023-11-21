@@ -52,14 +52,27 @@ class EventController extends Controller
         $events->description = $request->description;
         $events->type = $request->type;
         $events->image = $request->image;
-        
+
         $valueCheckbox = $events->items = $request->items;
+
+        if($valueCheckbox == ""){
+            $valueCheckbox = array();
+
+        }
 
 //nessa parte eu estou pegando a parte de OUTROS na criação de eventos e pegando a parte de mais itens de estrutura, aonde eu crio uma variavel para receber esses dados e coloco eles em um array, depois eu retiro as virgulas e a cada virgula eu estabeleço um novo dado para o array e depois eu junto os dois arrays, o do checkbox e da parte de texto digitada pelo usuario.
         $valueTextArea = $_POST['items_textarea'];
 
-        $valueTextArea = explode(',', $valueTextArea);
+        if($valueTextArea == ""){
+            $valueTextArea = array();
 
+        }
+
+        if($valueTextArea){
+            $valueTextArea = explode(',', $valueTextArea);
+
+        }
+       
         $arrayCombinado = array_merge($valueCheckbox, $valueTextArea);
 
         $events->items = $arrayCombinado;
@@ -143,6 +156,14 @@ class EventController extends Controller
         $events = $user->events;
 
         return view('events.dashboard', ['events' => $events]);
+
+    }
+
+    public function destroy($id){
+        
+        Event::findOrFail($id)->delete();
+
+        return redirect('/dashboard')->with('msg', 'Evento excluido com sucesso!!');
 
     }
 

@@ -261,6 +261,11 @@ footer {
 
 }
 
+.dashboard-events-container form{
+    display: inline-block;
+
+}
+
 footer p {
     margin-bottom: 0;
 

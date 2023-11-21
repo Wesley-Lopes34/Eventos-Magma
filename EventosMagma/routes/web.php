@@ -35,6 +35,9 @@ Route::get('/events/{id}', [EventController::class, 'show']);
 
 Route::post("/events", [EventController::class, 'store']);
 
-//Criação da parte que envia para a tela de Dashboard para caso o usuario esteja logado.
+//Criação da parte que envia para a tela de Dashboard para caso o usuario esteja logado
 Route::get('/dashboard', [EventController::class, 'dashboard'])->middleware('auth');
+
+//Rota de controle para apaga um id da tabela events
+Route::delete('/events/{id}', [EventController::class, 'destroy']);
 
