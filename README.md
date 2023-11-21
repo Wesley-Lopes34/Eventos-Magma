@@ -7,3 +7,5 @@
  <li>HTML;</li>
  <li>CSS;</li>
  <li>BOOSTRAP.</li>
+
+  Esse tipo de sistema pode ser usado em faculdades e universidades para melhor gerenciamento de seus eventos, substituindo os quadros de eventos e facilitando o modo de inscrição para um evento. Sinta-se livre para copiar o código, fazer novas atualizações no sistema e usar esse sistema como quiser.
