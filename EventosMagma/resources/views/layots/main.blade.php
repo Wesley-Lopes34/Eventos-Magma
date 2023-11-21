@@ -31,8 +31,7 @@
                             <h2>Eventos</h2>
                             <h2>Magma</h2>
                         </div>
-                   
-                        <img src="/imgs/logo.png" alt="Eventos Magma" style="width: 75px; margin: 10px;">
+                            <img src="/imgs/logo.png" alt="Eventos Magma" style="width: 75px; margin: 10px;">
                     </a>
                         
                     <ul class="navbar-nav">

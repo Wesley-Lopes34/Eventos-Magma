@@ -6,7 +6,6 @@
 <!--Essa parte é o index da página-->
     <link rel="stylesheet" href="/css/styles.css">
 
-<!--Parte da lógica que chama a mensagem de que o evento foi criado com sucesso-->
     <div id="search-container" class="col-md-12">
         <h1>Busque um evento</h1>
         <form action="/" method="get">
@@ -24,18 +23,18 @@
             <p class="subtitle">Eventos dos próximos dias:</p>
         @endif
 
-                <div id="cards-container" class="row">
+        <div id="cards-container" class="row">
 
 <!-- Essa parte faz uma pesquisa da tabela Events e caso tenha algo, exiba as informações desse Evento. -->    
                 @foreach($events as $event)
                     <div class="card col-md-4">
                         <img src="/imgs/events/{{ $event->image  }}" alt="{{ $event->title; }}">
                         <div class="card-body">
-                                <p class="card-date">{{ date('d/m/y', strtotime($event->date)) }}</p>
-                                    <h5 class="card-title">{{ $event->title }}</h5>
-                                <p class="card-participants">x pessoas</p>
+                            <p class="card-date">{{ date('d/m/y', strtotime($event->date)) }}</p>
+                                <h5 class="card-title">{{ $event->title }}</h5>
+                            <p class="card-participants">x pessoas</p>
 
-<!--Nessa parte eu estou fazendo uma verificação para que caso a data de um evento já tenha passado, ele fique inacessivel-->
+<!-- Nessa parte eu estou fazendo uma verificação para que caso a data de um evento já tenha passado, ele fique inacessivel. -->
                     <?php 
 
                         $datenow = date('Y-m-d');

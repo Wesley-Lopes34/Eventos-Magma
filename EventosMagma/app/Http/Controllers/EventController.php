@@ -1,6 +1,7 @@
 <?php
 //O controler serve para manipular as paginas do meu projeto, aqui eu posso somente colocar parte que devem ser feita a logica de cada página.
 namespace App\Http\Controllers;
+
 //Essa parte é como se fosse a parte de imports, eu estou importando do Model a parte de eventos.
 use Illuminate\Http\Request;
 use App\Models\Event;
@@ -22,7 +23,7 @@ class EventController extends Controller
         }
         else{
 
-//Caso não encontre ou não seja feita nenhuma pesquisa, é para mostrar todos os eventos cadastrados.
+//Caso não encontre ou não seja feita nenhuma pesquisa, vai exibir todos os eventos cadastrados.
             $events = Event::all();
 
         }
@@ -44,7 +45,7 @@ class EventController extends Controller
 
         $events = new Event;
 
-//Nesa parte ta pegando os dados dos forms para colocar no banco de dados. 
+//Nesa parte tá pegando os dados dos forms para colocar no banco de dados. 
         $events->title = $request->title;
         $events->date = $request->date;
         $events->city = $request->city;
@@ -54,7 +55,7 @@ class EventController extends Controller
         
         $valueCheckbox = $events->items = $request->items;
 
-//nessa parte eu estou pegando a parte de OUTROS na criação de eventos e pegando a parte de mais itens de estrutura, aonde eu crio uma variavel para receber esses dados e coloco eles em um array, depois eu retiro as virgulas e a cada vrigula eu estabeleço um novo dado para o array e depois eu junto os dois arrays, o de que items que recebe os itens do checkbox e da parte de texto.
+//nessa parte eu estou pegando a parte de OUTROS na criação de eventos e pegando a parte de mais itens de estrutura, aonde eu crio uma variavel para receber esses dados e coloco eles em um array, depois eu retiro as virgulas e a cada virgula eu estabeleço um novo dado para o array e depois eu junto os dois arrays, o do checkbox e da parte de texto digitada pelo usuario.
         $valueTextArea = $_POST['items_textarea'];
 
         $valueTextArea = explode(',', $valueTextArea);
@@ -74,21 +75,23 @@ class EventController extends Controller
 //Pegar nome da imagem.
             $imageName = md5($requestImage->getClientOriginalName() . strtotime('now')) . '.' . $extension;
 
+//Mover a imagem para a pasta de imagens correta.
             $requestImage->move(public_path('imgs/events'), $imageName);
 
             $events->image = $imageName;
 
+//Caso o usuario não tenha colocado nenhuma imagem no evento, vai ser colocado de forma automatica a logo do site.
         }else{
             $imageName = 'logo.png';
 
             $events->image = $imageName;
         }
 
-//Parte de autenticação de usuario para online
+//Parte de autenticação de usuario para online.
         $user = auth()->user();
         $events->user_id = $user->id;
 
-//Salva o evento no banco de dados
+//Salva o evento no banco de dados.
         $events->save();
 
 //Parte para checar e mandar mensagem caso o evento tenha sido criado com sucesso e logo após mensagem de alerta caso não tenha dado certo.
@@ -123,7 +126,8 @@ class EventController extends Controller
                 return redirect('/');
             }
 
-//Nessa parte eu estou atribuindo o valor do id do user para uma váriavel que vai ser a váriavel que vai receber o valor de quem é o dono do evento, eu estou pegando o primeiro id que a busca fizer e transformo ele em array porque um mesmo usuário pode ali ser o dono de mais de um evento e logo após eu passo o dado da váriavel para a minha view para que ela possa receber tudo certinho.
+
+//Nessa parte eu estou atribuindo o valor do id do user para uma váriavel que vai ser a váriavel que vai receber o valor de quem é o dono do evento, eu estou pegando o primeiro id que a busca fizer e transformo ele em array porque um mesmo usuário pode ser o dono de mais de um evento e logo após eu passo o dado da váriavel para a minha view para que ela possa receber tudo certinho.
             $eventOwner = User::where('id', $event->user_id)->first()->toArray();
 
         return view('events.show', ['event' => $event, 'eventOwner' => $eventOwner]);   

@@ -23,6 +23,7 @@
                     </tr>
                 </head>
             <tbody>
+            
                 @foreach($events as $event)
                 
 <!--Nessa parte eu estou atribuindo sempre a parte do index +1, para que o número de eventos nunca bugue ou que não dê um erro na contagem do número de eventos cadastrados pelo usuario. -->

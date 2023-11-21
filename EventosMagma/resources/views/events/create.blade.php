@@ -54,14 +54,14 @@
             <input type="checkbox" name="items[]" value="Brindes"> Brindes
         </div>
         <div class="form-group">
-<!--Nessa parte de OUTROS, eu criei uma nova váriavel para receber os valores que forem digitados nessa parte, e depois eu junto esses valores com o resto dos itens-->
+
+<!--Nessa parte de OUTROS, eu criei uma nova váriavel para receber os valores que forem digitados nessa parte e depois eu junto esses valores com o resto dos itens.-->
             <label for="imagem" id="outros">Outros: </label>
             <textarea type="text" class="form-control" name="items_textarea" placeholder="Outros" value=""></textarea>
             <div id="text-alert">
                 <p>ATENÇÃO!! Caso deseje acressentar mais de um item, separe os mesmos por uma virgula(,), o site fará um reconhecimento e colocará os itens em formato de lista.</p>
             </div>
         </div>
-
     </div>
         <div class="form-group">
             <label for="image">Imagem do Evento: </label>

@@ -29,7 +29,10 @@ Route::get('/eventos/{id}', function ($id) {
 
 //Nessa parte de create, eu estabeleci uma regra de que essa parte só irá aparecer para usuarios que estiverem logados(middleware), ou seja um ghost não poderá criar um evento impedindo de possiveis bugs futuros e erros de lógica
 Route::get('/events/create', [EventController::class, 'create'])->middleware('auth');
+
+//Aqui eu estou passando o id do evento para que mostre as informações sobre esse evento
 Route::get('/events/{id}', [EventController::class, 'show']);
+
 Route::post("/events", [EventController::class, 'store']);
 
 //Criação da parte que envia para a tela de Dashboard para caso o usuario esteja logado.
