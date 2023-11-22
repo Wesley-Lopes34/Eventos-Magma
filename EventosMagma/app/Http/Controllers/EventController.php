@@ -60,7 +60,7 @@ class EventController extends Controller
 
         }
 
-//nessa parte eu estou pegando a parte de OUTROS na criação de eventos e pegando a parte de mais itens de estrutura, aonde eu crio uma variavel para receber esses dados e coloco eles em um array, depois eu retiro as virgulas e a cada virgula eu estabeleço um novo dado para o array e depois eu junto os dois arrays, o do checkbox e da parte de texto digitada pelo usuario.
+//Nessa parte eu estou pegando a parte de OUTROS na criação de eventos e pegando a parte de mais itens de estrutura, aonde eu crio uma variavel para receber esses dados e coloco eles em um array, depois eu retiro as virgulas e a cada virgula eu estabeleço um novo dado para o array e depois eu junto os dois arrays, o do checkbox e da parte de texto digitada pelo usuario. Logo após eu coloquei um if para caso não tenha nada selecionado, ele atribuia automaticamente aos arrays nada.
         $valueTextArea = $_POST['items_textarea'];
 
         if($valueTextArea == ""){
@@ -164,6 +164,14 @@ class EventController extends Controller
         Event::findOrFail($id)->delete();
 
         return redirect('/dashboard')->with('msg', 'Evento excluido com sucesso!!');
+
+    }
+
+    public function edit($id){
+
+        $event = Event::findOrFail($id);
+
+        return view('events.edit', ['event'=> $event]);
 
     }
 
