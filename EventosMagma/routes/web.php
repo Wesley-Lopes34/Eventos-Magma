@@ -44,3 +44,7 @@ Route::delete('/events/{id}', [EventController::class, 'destroy'])->middleware('
 //Rota de controle para editar um evento da tabela events
 Route::get('/events/edit/{id}', [EventController::class, 'edit'])->middleware('auth');
 
+//Passando os dados para o banco de dados
+Route::put('/events/update/{id}', [EventController::class, 'update']);
+
+

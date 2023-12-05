@@ -17,6 +17,10 @@ class Event extends Model
 
     protected $dates = ['date'];
 
+
+//Estou dizendo que os dados podem ser atualizados, ele me permite atualizar tudo, caso eu colocasse algum dado ai ele só permitiria atualizar aquele dado.
+    protected $guarded = [];
+
 //Função que diz que um usuario sempre vai pertencer a um usuario, por assim dizer
     public function user(){
 

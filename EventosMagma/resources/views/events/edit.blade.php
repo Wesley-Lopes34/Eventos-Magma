@@ -4,35 +4,35 @@
 
 @section('content')
 
-<!-- Essa é a parte de criação dos eventos, com forms para cada campo do evento -->
+<!-- Essa é a parte de edição dos eventos, com forms para cada campo do evento -->
 
 <div id="event-create-container" class="col-md-6 offset-md-3">
     <h1>Editando: {{ $event->title }}</h1>
-    <form action="/events/update {{ $event->id }}" method="post" enctype="multipart/form-data">
-        @csrf
-        @method('PUT')
+    <form action="/events/update/{{ $event->id }}" method="POST" enctype="multipart/form-data">
+    @csrf
+    @method('put')
     <div class="form-group">
         <label for="title">Evento: </label>
         <input type="text" class="form-control" id="title" name="title" placeholder="Nome do Evento" required value="{{ $event->title }}">
     </div>
     <div class="form-group">
         <label for="title">Cidade: </label>
-        <input type="text" class="form-control" id="city" name="city" placeholder="Cidade do Evento" required>
+        <input type="text" class="form-control" id="city" name="city" placeholder="Cidade do Evento" value="{{ $event->city }}">
     </div>
     <div class="form-group">
         <label for="date">Data do evento: </label>
-        <input type="date" class="form-control" id="date" name="date" required>
+        <input type="date" class="form-control" id="date" name="date" value="{{ $event->date->format('Y-m-d') }}">
     </div>
     <div class="form-group">
         <label for="title">O evento é privado?</label>
         <select name="type" id="type" class="form-control" required>
             <option value="0">Não</option>
-            <option value="1">Sim</option>
+            <option value="1" {{ $event->private == 1 ? "selected='selected'" : "" }}>Sim</option>
         </select>
     </div>
     <div class="form-group">
         <label for="image">Descrição: </label>
-        <textarea name="description" id="description" class="form-control" placeholder="O que vai acontecer no evento?" required></textarea>
+        <textarea name="description" id="description" class="form-control" placeholder="O que vai acontecer no evento?" required>{{ $event->description }}</textarea>
     </div>
     <div class="form-group">
         <label for="title">Adicione itens de infraestrutura: </label>
@@ -69,7 +69,7 @@
                 <input type="file" id="image" name="image" class="form-control-file">
                 <img src="/imgs/events/{{ $event->image }}" alt="{{ $event->title }}" class="img-preview">
         </div>
-        <input type="submit" class="btn btn-primary" value="Criar Evento">
+        <input type="submit" class="btn btn-primary" value="Editar Evento">
     </form>
 </div>
 
