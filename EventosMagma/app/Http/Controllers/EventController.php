@@ -176,12 +176,22 @@ class EventController extends Controller
     }
 
     public function update(Request $request, $id){
-        $event = Event::findOrFail($id);
-        $event->update($request->all());
-    
-        return redirect('/dashboard')->with('msg', 'Evento Editado com sucesso!!');
+
+        if(!$events = Event::find($id)){
+            
+            return redirect('/dashboard');
+
+        }
+        
+
+        Event::findorFail('id', $id)->update($request->all());
+
+        $request->save();
+
+       return redirect('/dashboard');
+
+
     }
 
     
-
 }

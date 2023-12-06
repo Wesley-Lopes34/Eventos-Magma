@@ -8,9 +8,9 @@
 
 <div id="event-create-container" class="col-md-6 offset-md-3">
     <h1>Editando: {{ $event->title }}</h1>
-    <form action="/events/update/{{ $event->id }}" method="POST" enctype="multipart/form-data">
+    <form action="/update/{{ $event->id }}" method="POST" enctype="multipart/form-data">
         @csrf
-        @method('PUT')
+        @method('put')
     <div class="form-group">
         <label for="title">Evento: </label>
         <input type="text" class="form-control" id="title" name="title" placeholder="Nome do Evento" required value="{{ $event->title }}">

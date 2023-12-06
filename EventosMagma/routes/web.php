@@ -45,6 +45,6 @@ Route::delete('/events/{id}', [EventController::class, 'destroy'])->middleware('
 Route::get('/events/edit/{id}', [EventController::class, 'edit'])->middleware('auth');
 
 //Passando os dados para o banco de dados
-Route::put('/events/update/{id}', [EventController::class, 'update'])->middleware('auth');
+Route::put('/update/{id}', [EventController::class, 'update'])->name('events.update');
 
 
