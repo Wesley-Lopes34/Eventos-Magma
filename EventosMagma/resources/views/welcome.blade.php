@@ -71,7 +71,7 @@
     </div>
 </div>
 
-        <!-- Chama a mensagem para dizer se deu certo ou não a criação de um evento. -->
+<!-- Chama a mensagem para dizer se deu certo ou não a criação de um evento. -->
     <?php
     session_start();
     if(isset($_SESSION['message'])){

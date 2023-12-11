@@ -4,6 +4,8 @@
 
 @section('content')
 
+@method('put')
+
 <!--Nessa parte é a parte de Meus eventos da Navbar, aonde é possivel ver e modificar os eventos do usuario logado.-->
 
 <div class="col-md-10 offset-md-1 dashboard-title-container">
