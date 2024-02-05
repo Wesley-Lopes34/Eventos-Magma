@@ -1,0 +1,281 @@
+/* General */
+
+*{
+    font-family: 'Roboto';
+}
+
+body {
+    min-height: 100vh;
+    padding-bottom: 100px;
+    position: relative;
+}
+
+header {
+    border-bottom: 1px solid #ccc;
+    background-color: #fff;
+}
+
+.row {
+    margin: 0;
+
+}
+
+.container-fluid {
+    padding: 0;
+
+}
+
+.btn-primary {
+    background-color: #2a50f8;
+    border: 2px solid #1f0cc9;
+    margin-top: 10px;
+    color: #fff;
+
+}
+
+.btn-primary:hover {
+    background-color: #110483;
+    border-color: #15088b;
+}
+
+/* NAVBAR */
+
+#navbar {
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 5px 0;
+
+}
+
+#navbar a {
+    font-size: 20px;
+    color: #757575;
+
+}
+
+#navbar a:hover {
+    color: #110483;
+
+}
+
+/* Search Container */
+
+#search-container {
+    background-image: url("../imgs/pessoasassisntoalgo02.png");
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    padding: 50px;
+    text-align: center;
+
+}
+
+#search-container h1 {
+    color: black;
+    margin-bottom: 30px;
+    font-weight: 900;
+
+}
+
+#search-container form {
+    width: 50%;
+    margin: 0 auto;
+
+}
+
+/* Lista de Eventos */
+
+#events-container {
+    padding: 50px;
+    
+}
+
+#events-container h2 {
+    margin-bottom: 10px;
+
+}
+
+#events-container .subtitle {
+    color: #757575;
+    margin-bottom: 30px;
+
+}
+
+#cards-container {
+    display: flex;
+
+}
+
+#events-container .card {
+    flex: 1 1 24%;
+    max-width: 25%;
+    border-radius: 10px;
+    padding: 0;
+    margin: 0.5%;
+
+}
+
+#events-container img {
+    width: 100%;
+    padding: 16px;
+    margin: auto;
+    border: 2px;
+}
+
+#events-container img:hover {
+    transform: scale(1.1);
+    transition: all 0.5s;
+    background-size: cover;
+}
+
+.card .card-date {
+    font-size: 12px;
+
+}
+
+.card .card-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #212121;
+    margin-bottom: 25px;
+
+}
+
+.card-participants {
+    font-size: 14px;
+    color: #110483;
+
+}
+
+/*  Pagina de criação de eventos */
+
+#event-create-container {
+    padding: 30px;
+    border-color: black;
+
+}
+
+#event-create-container label{
+    font-weight: bold;
+    
+}
+
+#event-create-container input,
+#event-create-container select,
+#event-create-container textarea {
+    font-size: 15px;
+
+}
+
+#text-alert{
+    background-color: #757575;
+    font-size: 15px;
+    margin: 10px;
+    font-weight: bold;
+    padding: 3px;
+
+}
+
+/* Página do evento */
+    #image-container,
+    #info-container{
+        margin-top: 30px;
+
+    }
+
+    #image-container img{
+        border-radius: 10px;
+
+    }
+
+    #infor-container h1{
+        font-size: 36px;
+        font-weight: 900;
+
+    }
+
+    #infor-container p{
+        margin: 0;
+        font-size: 14px;
+        display: flex;
+
+    }
+
+    #infor-container h3,
+    #description-container h3{
+        font-size: 20px;
+        font-weight: bold;
+
+    }
+
+    #infor-container ion-icon {
+        font-size: 20px;
+        color: #2a50f8;
+        margin-right: 5px;
+    }
+
+    #infor-container #event-submit {
+        margin: 20px 0;
+        
+    }
+
+    #items-list {
+        list-style: none;
+        padding-left: 0;
+
+    }
+
+    #items-list li{
+        display: flex;
+        
+    }
+
+    #description-container{
+        margin-top: 20px;
+
+    }
+
+/* Footer */
+
+footer {
+    text-align: center;
+    background-color: #353e48;
+    color: #fff;
+    position: absolute;
+    padding: 30px;
+    bottom: 0;
+    width: 100%;
+
+}
+
+/* Dashboard */
+
+.dashboard-title-container{
+    margin-bottom: 30px;
+    margin-top: 30px;
+
+}
+
+.dashboard-events-container th{
+    width: 25%;
+
+}
+
+.dashboard-events-container form{
+    display: inline-block;
+
+}
+
+footer p {
+    margin-bottom: 0;
+
+}
+
+
+/* Edit Page */
+
+.img-preview{
+    width: 300px;
+    margin-top: 20px;
+
+}
