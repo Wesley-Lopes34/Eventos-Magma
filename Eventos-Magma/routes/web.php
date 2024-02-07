@@ -1,8 +1,6 @@
 <?php
 
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,21 +13,36 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
+use App\Http\Controllers\EventController;
+
+Route::get('/', [EventController::class, 'index']
+
+);
+
+Route::get('/about', function () {
+    return view('about');
 });
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
-    })->name('dashboard');
+Route::get('/eventos/{id}', function ($id) {
+    return view('eventos', ['id' => $id]);
 });
+
+//Nessa parte de create, eu estabeleci uma regra de que essa parte só irá aparecer para usuarios que estiverem logados(middleware), ou seja um ghost não poderá criar um evento impedindo de possiveis bugs futuros e erros de lógica
+Route::get('/events/create', [EventController::class, 'create'])->middleware('auth');
+
+//Aqui eu estou passando o id do evento para que mostre as informações sobre esse evento
+Route::get('/events/{id}', [EventController::class, 'show']);
+
+Route::post("/events", [EventController::class, 'store']);
+
+//Criação da parte que envia para a tela de Dashboard para caso o usuario esteja logado
+Route::any('/dashboard', [EventController::class, 'dashboard'])->middleware('auth');
+
+//Rota de controle para apaga um evento da tabela events
+Route::delete('/events/{id}', [EventController::class, 'destroy'])->middleware('auth');
+
+//Rota de controle para editar um evento da tabela events
+Route::get('/events/edit/{id}', [EventController::class, 'edit'])->middleware('auth');
+
+//Passando os dados para o banco de dados
+Route::put('/update/{id}', [EventController::class, 'update'])->name('event.update');
