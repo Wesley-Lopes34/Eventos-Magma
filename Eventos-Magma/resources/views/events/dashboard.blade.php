@@ -1,5 +1,7 @@
 @extends('layots.main')
 
+<meta charset="UTF-8">
+
 @section('title', 'Dashboard')
 
 @section('content')
@@ -14,7 +16,14 @@
 <div class="col-md-10 offset-md-1 dashboard-events-container">
 
 <!--Aqui é feita uma verificação para que se caso o usuario não tenha criado nenhum evento, apareça uma mensagem e um link que ó leva para a parte de criação de eventos.-->
-    @if(count($events) > 0)
+
+    $events = array();
+
+    <?php
+        if( 
+            count($events > 0
+        ){
+    ?>
         <table class="table">
                 <head>
                     <tr>
@@ -26,7 +35,7 @@
                 </head>
             <tbody>
             
-                @foreach($events as $event)
+                <?php foreach($events as $event): ?> 
                 
 <!--Nessa parte eu estou atribuindo sempre a parte do index +1, para que o número de eventos nunca bugue ou que não dê um erro na contagem do número de eventos cadastrados pelo usuario. -->
                     <tr>
@@ -42,12 +51,22 @@
                             </form>
                         </td>
                     </tr>
-                @endforeach
+               <?php
+
+                endforeach;
+
+               ?>
+
             </tbody>
         </table>
-    @else
+    <?php 
+        }else{ 
+    ?>
+
         <p>Você ainda não tem eventos, <a href="/events/create">Criar evento</a></p>
-    @endif
+
+    <?php }; ?>
+
 </div>
 
 @endsection
