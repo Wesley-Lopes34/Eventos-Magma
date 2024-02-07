@@ -19,11 +19,9 @@
 
     $events = array();
 
-    <?php
-        if( 
-            count($events > 0
-        ){
-    ?>
+
+        @if( count($events > 0)
+   
         <table class="table">
                 <head>
                     <tr>
@@ -59,13 +57,12 @@
 
             </tbody>
         </table>
-    <?php 
-        }else{ 
-    ?>
+        
+    @else
 
         <p>Você ainda não tem eventos, <a href="/events/create">Criar evento</a></p>
 
-    <?php }; ?>
+ 
 
 </div>
 
