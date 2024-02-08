@@ -1,7 +1,5 @@
 @extends('layots.main')
 
-<meta charset="UTF-8">
-
 @section('title', 'Dashboard')
 
 @section('content')
@@ -17,10 +15,9 @@
 
 <!--Aqui é feita uma verificação para que se caso o usuario não tenha criado nenhum evento, apareça uma mensagem e um link que ó leva para a parte de criação de eventos.-->
 
-    $events = array();
-
-
-        @if( count($events > 0)
+    
+            @if( !empty($events)) 
+  
    
         <table class="table">
                 <head>
@@ -33,7 +30,7 @@
                 </head>
             <tbody>
             
-                <?php foreach($events as $event): ?> 
+                @foreach($events as $event) 
                 
 <!--Nessa parte eu estou atribuindo sempre a parte do index +1, para que o número de eventos nunca bugue ou que não dê um erro na contagem do número de eventos cadastrados pelo usuario. -->
                     <tr>
@@ -49,20 +46,20 @@
                             </form>
                         </td>
                     </tr>
-               <?php
+       
 
-                endforeach;
+                @endforeach
 
-               ?>
-
+    
             </tbody>
         </table>
-        
-    @else
 
+  
+        @else
+        
         <p>Você ainda não tem eventos, <a href="/events/create">Criar evento</a></p>
 
- 
+   @endif
 
 </div>
 
