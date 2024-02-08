@@ -58,4 +58,11 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    //Nessa função eu estabeleço que tem varios eventos, ou seja, agora é possivel atrelar um evento a outro ou a qualquer outro usuario, é necessario para que um usuario possa pertencer a um evento ou um evento pertencer a um usuario
+public function events(){
+
+    return $this->hasMany('App\Models\Event');
 }
+}
+

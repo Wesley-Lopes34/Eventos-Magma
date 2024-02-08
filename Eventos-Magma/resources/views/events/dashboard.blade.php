@@ -16,7 +16,7 @@
 <!--Aqui é feita uma verificação para que se caso o usuario não tenha criado nenhum evento, apareça uma mensagem e um link que ó leva para a parte de criação de eventos.-->
 
     
-            @if( !empty($events)) 
+@if(count($events) !== "")
   
    
         <table class="table">
@@ -56,7 +56,7 @@
 
   
         @else
-        
+
         <p>Você ainda não tem eventos, <a href="/events/create">Criar evento</a></p>
 
    @endif
