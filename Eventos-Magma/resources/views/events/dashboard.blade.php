@@ -16,7 +16,7 @@
 <!--Aqui é feita uma verificação para que se caso o usuario não tenha criado nenhum evento, apareça uma mensagem e um link que ó leva para a parte de criação de eventos.-->
 
     
-@if(count($events) !== "")
+@if(count($events) != 0)
   
    
         <table class="table">
