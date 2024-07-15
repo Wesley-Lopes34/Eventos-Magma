@@ -149,7 +149,7 @@ class EventController extends Controller
 
     public function dashboard(){
 
-//Nessa parte eu estou pegando o usuario que está logado.
+        
         $user = auth()->user();
 
 //Pegando os eventos do usuario usando oque foi feito do Models.
