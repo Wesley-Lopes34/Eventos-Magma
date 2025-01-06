@@ -18,7 +18,7 @@
 
 
 
-@if (count($events) > 0)
+@if($events->isNotEmpty())
   
    
         <table class="table">

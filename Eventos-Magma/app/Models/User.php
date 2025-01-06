@@ -64,5 +64,7 @@ public function events(){
 
     return $this->hasMany('App\Models\Event');
 }
+
 }
+
 
