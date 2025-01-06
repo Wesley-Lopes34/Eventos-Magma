@@ -15,7 +15,9 @@
 
 <!--Aqui é feita uma verificação para que se caso o usuario não tenha criado nenhum evento, apareça uma mensagem e um link que ó leva para a parte de criação de eventos.-->
 
-    
+
+
+
 @if ($events != 0)
   
    
@@ -28,13 +30,14 @@
                         <th scope="col">Ações</th>
                     </tr>
                 </head>
+                </table>
             <tbody>
             
                 @foreach($events as $event) 
                 
 <!--Nessa parte eu estou atribuindo sempre a parte do index +1, para que o número de eventos nunca bugue ou que não dê um erro na contagem do número de eventos cadastrados pelo usuario. -->
                     <tr>
-                        <td scope="row"> {{ $loop->index + 1 }} </td>
+                        <td scropt="row"> {{ $loop->index + 1 }} </td>
                         <td><a href="/events/{{ $event->id }}"> {{ $event->title }} </a></td>
                         <td>0</td>
                         <td>
@@ -47,14 +50,12 @@
                         </td>
                     </tr>
        
-
+ 
                 @endforeach
 
     
             </tbody>
-        </table>
-
-  
+        
         @else
 
         <p>Você ainda não tem eventos, <a href="/events/create">Criar evento</a></p>

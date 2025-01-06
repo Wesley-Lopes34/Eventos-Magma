@@ -73,7 +73,7 @@
             @yield('content')
         <footer>
             <p>
-                Eventos Magma &copy; 2024
+                Eventos Magma &copy; 2025
             </p>
         </footer>
             <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

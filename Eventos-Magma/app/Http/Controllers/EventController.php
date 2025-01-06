@@ -155,11 +155,16 @@ class EventController extends Controller
 //Pegando os eventos do usuario usando oque foi feito do Models.
         $events = $user->events;
 
+    
+
         $events = array();
+
+    
+
 
         return view('events.dashboard', ['events' => $events]);
 
-    }
+    } 
 
     public function destroy($id){
         
