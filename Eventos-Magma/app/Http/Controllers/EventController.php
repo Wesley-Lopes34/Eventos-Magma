@@ -155,9 +155,9 @@ class EventController extends Controller
 //Pegando os eventos do usuario usando oque foi feito do Models.
       $events = $user -> events;
 
-       $events = Event::where('user_id', $user)->get();
+      $events = Event::where('user_id', $user)->get();
     
-        return view('dashboard', compact('events'));
+       return view('events.dashboard', ['events' => $events]);
 
     } 
 

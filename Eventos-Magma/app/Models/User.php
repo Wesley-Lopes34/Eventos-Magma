@@ -17,7 +17,7 @@ class User extends Authenticatable
     use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;
-
+    
     /**
      * The attributes that are mass assignable.
      *
@@ -27,7 +27,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'user_id',
     ];
+    
 
     /**
      * The attributes that should be hidden for serialization.
@@ -62,9 +64,15 @@ class User extends Authenticatable
     //Nessa função eu estabeleço que tem varios eventos, ou seja, agora é possivel atrelar um evento a outro ou a qualquer outro usuario, é necessario para que um usuario possa pertencer a um evento ou um evento pertencer a um usuario
 public function events(){
 
+   
+
+    {
+        return $this->belongsTo(User::class); // Relacionamento com o usuário
+    }
     return $this->hasMany('App\Models\Event');
 }
 
 }
+
 
 
