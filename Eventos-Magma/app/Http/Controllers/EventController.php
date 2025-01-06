@@ -153,18 +153,15 @@ class EventController extends Controller
         $user = auth()->user();
 
 //Pegando os eventos do usuario usando oque foi feito do Models.
-        $events = $user->events;
-
-    
+       $events = Event::where('user_id', $user)->first();
 
         $events = array();
-
     
-
-
         return view('events.dashboard', ['events' => $events]);
 
     } 
+
+
 
     public function destroy($id){
         

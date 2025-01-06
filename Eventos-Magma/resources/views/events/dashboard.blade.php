@@ -18,7 +18,7 @@
 
 
 
-@if ($events != 0)
+@if (count($events) > 0)
   
    
         <table class="table">
