@@ -46,3 +46,9 @@ Route::get('/events/edit/{id}', [EventController::class, 'edit'])->middleware('a
 
 //Passando os dados para o banco de dados
 Route::put('/update/{id}', [EventController::class, 'update'])->name('event.update');
+
+use Inertia\Inertia;
+
+Route::get('/login', function () {
+    return Inertia::render('Login');
+});
